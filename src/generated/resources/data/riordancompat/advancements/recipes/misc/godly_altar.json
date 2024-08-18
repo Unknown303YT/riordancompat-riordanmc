@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_smooth_quartz_slab": {
+      "conditions": {
+        "items": [
+          {
+            "count": 3,
+            "items": [
+              "minecraft:smooth_quartz_slab"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "riordancompat:godly_altar"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_smooth_quartz_slab",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "riordancompat:godly_altar"
+    ]
+  },
+  "sends_telemetry_event": false
+}

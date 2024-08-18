@@ -15,7 +15,7 @@ public class ModCreativeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, RiordanMod.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> RIORDAN_TAB = CREATIVE_TABS.register("riordan_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.FABRIC.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.GODLY_ALTAR.get()))
                     .title(Component.translatable("creativetab.riordancompat.riordan_tab"))
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(ModItems.FABRIC.get());

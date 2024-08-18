@@ -28,9 +28,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("qqq")
                 .pattern("L L")
                 .define('d', Items.DIAMOND)
-                .define('q', Blocks.SMOOTH_QUARTZ_SLAB)
-                .define('L', Blocks.LAPIS_BLOCK)
-                .unlockedBy(getHasName(Blocks.SMOOTH_QUARTZ_SLAB), has(MinMaxBounds.Ints.exactly(3), Blocks.SMOOTH_QUARTZ_SLAB))
+                .define('q', Items.SMOOTH_QUARTZ_SLAB)
+                .define('L', Items.LAPIS_BLOCK)
+                .unlockedBy(getHasName(Items.SMOOTH_QUARTZ_SLAB), has(MinMaxBounds.Ints.exactly(3), Items.SMOOTH_QUARTZ_SLAB))
                 .save(pWriter);
     }
 
