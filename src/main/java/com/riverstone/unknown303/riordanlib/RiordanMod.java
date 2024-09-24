@@ -5,6 +5,8 @@ import com.riverstone.unknown303.riordanlib.block.ModBlocks;
 import com.riverstone.unknown303.riordanlib.block.entity.ModBlockEntities;
 import com.riverstone.unknown303.riordanlib.item.ModCreativeTabs;
 import com.riverstone.unknown303.riordanlib.item.ModItems;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
