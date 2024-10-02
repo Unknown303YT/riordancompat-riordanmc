@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "": { "model": "riordancompat:block/godly_altar" },
+    "facing=north": { "model": "riordancompat:block/godly_altar" },
+    "facing=south": { "model": "riordancompat:block/godly_altar", "y": 180 },
+    "facing=west": { "model": "riordancompat:block/godly_altar", "y": 270 },
+    "facing=east": { "model": "riordancompat:block/godly_altar", "y": 90 }
+  }
+}

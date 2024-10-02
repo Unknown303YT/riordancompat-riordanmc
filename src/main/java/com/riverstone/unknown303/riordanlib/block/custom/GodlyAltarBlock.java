@@ -1,7 +1,6 @@
 package com.riverstone.unknown303.riordanlib.block.custom;
 
 
-import com.riverstone.unknown303.riordanlib.block.ModBlocks;
 import com.riverstone.unknown303.riordanlib.block.entity.GodlyAltarBlockEntity;
 import com.riverstone.unknown303.riordanlib.block.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
@@ -13,7 +12,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -22,20 +20,21 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 public class GodlyAltarBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    public static final VoxelShape SHAPE = Block.box(-7, 0, 2, 7, 16, 14);
+    public static final VoxelShape SHAPE = Block.box(-8, 0, 0, 24, 16, 18);
 
     public GodlyAltarBlock(Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState((BlockState) ((BlockState) this.getStateDefinition().any()).setValue(FACING, Direction.NORTH));
+        this.registerDefaultState(this.getStateDefinition().any()
+                .setValue(FACING, Direction.NORTH));
     }
 
     /* FACING */
@@ -46,24 +45,49 @@ public class GodlyAltarBlock extends BaseEntityBlock {
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
-    @SuppressWarnings("deprecation")
-    @Deprecated
-    @Override
-    public BlockState rotate(BlockState state, Rotation rot) {
-        return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
-    }
-
-    @SuppressWarnings("deprecation")
-    @Deprecated
-    @Override
-    public BlockState mirror(BlockState state, Mirror mirrorIn) {
-        return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
-    }
-
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return rotateShape(Direction.NORTH, state.getValue(FACING), SHAPE);
+    }
+
+    @Override
+    public VoxelShape getInteractionShape(BlockState state, BlockGetter level, BlockPos pos) {
+        return rotateShape(Direction.NORTH, state.getValue(FACING), SHAPE);
+    }
+
+    @Override
+    public VoxelShape getBlockSupportShape(BlockState state, BlockGetter level, BlockPos pos) {
+        return rotateShape(Direction.NORTH, state.getValue(FACING), SHAPE);
+    }
+
+    public static VoxelShape rotateShape(Direction from, Direction to, VoxelShape shape) {
+        VoxelShape[] buffer = new VoxelShape[] { shape, Shapes.empty() };
+        int times = (to.get2DDataValue() - from.get2DDataValue() + 4) % 4;
+
+        for (int i = 0; i < times; i++) {
+            buffer[0].forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) -> {
+                buffer[1] = Shapes.or(buffer[1],
+                        Shapes.box(1 - maxZ, minY, minX, 1 - minZ, maxY, maxX));
+            });
+            buffer[0] = buffer[1];
+            buffer[1] = Shapes.empty();
+        }
+        return buffer[0];
+    }
+
+//    @Override
+//    public void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
+//        super.onPlace(state, level, pos, oldState, movedByPiston);
+//        switch (state.getValue(FACING)) {
+//            case NORTH:
+//                level.getBlock
+//        }
+//    }
 
     /* BLOCK MODEL */
 
