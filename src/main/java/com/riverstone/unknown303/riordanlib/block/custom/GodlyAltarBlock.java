@@ -51,17 +51,7 @@ public class GodlyAltarBlock extends BaseEntityBlock {
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return rotateShape(Direction.NORTH, state.getValue(FACING), SHAPE);
-    }
-
-    @Override
-    public VoxelShape getInteractionShape(BlockState state, BlockGetter level, BlockPos pos) {
-        return rotateShape(Direction.NORTH, state.getValue(FACING), SHAPE);
-    }
-
-    @Override
-    public VoxelShape getBlockSupportShape(BlockState state, BlockGetter level, BlockPos pos) {
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return rotateShape(Direction.NORTH, state.getValue(FACING), SHAPE);
     }
 
@@ -90,11 +80,6 @@ public class GodlyAltarBlock extends BaseEntityBlock {
 //    }
 
     /* BLOCK MODEL */
-
-    @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return SHAPE;
-    }
 
     @Override
     public RenderShape getRenderShape(BlockState pState) {

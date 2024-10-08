@@ -67,7 +67,7 @@ public class RiordanMod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.GODLY_ALTAR.get(), RenderType.cutoutMipped());
         }
     }
 }
