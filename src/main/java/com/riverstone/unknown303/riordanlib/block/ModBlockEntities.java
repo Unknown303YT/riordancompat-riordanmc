@@ -1,8 +1,7 @@
-package com.riverstone.unknown303.riordanlib.block.entity;
+package com.riverstone.unknown303.riordanlib.block;
 
 import com.riverstone.unknown303.riordanlib.RiordanMod;
-import com.riverstone.unknown303.riordanlib.block.ModBlocks;
-import net.minecraft.world.level.block.entity.BlockEntity;
+import com.riverstone.unknown303.riordanlib.block.custom.godly_altar.GodlyAltarBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

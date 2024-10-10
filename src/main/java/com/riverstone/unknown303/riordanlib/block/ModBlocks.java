@@ -1,7 +1,7 @@
 package com.riverstone.unknown303.riordanlib.block;
 
 import com.riverstone.unknown303.riordanlib.RiordanMod;
-import com.riverstone.unknown303.riordanlib.block.custom.GodlyAltarBlock;
+import com.riverstone.unknown303.riordanlib.block.custom.godly_altar.GodlyAltarBlock;
 import com.riverstone.unknown303.riordanlib.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;

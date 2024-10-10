@@ -2,12 +2,11 @@ package com.riverstone.unknown303.riordanlib;
 
 import com.mojang.logging.LogUtils;
 import com.riverstone.unknown303.riordanlib.block.ModBlocks;
-import com.riverstone.unknown303.riordanlib.block.entity.ModBlockEntities;
+import com.riverstone.unknown303.riordanlib.block.ModBlockEntities;
 import com.riverstone.unknown303.riordanlib.item.ModCreativeTabs;
 import com.riverstone.unknown303.riordanlib.item.ModItems;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,7 +25,7 @@ import software.bernie.geckolib.GeckoLib;
 @Mod(RiordanMod.MOD_ID)
 public class RiordanMod {
     public static final String MOD_ID = "riordancompat";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public RiordanMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

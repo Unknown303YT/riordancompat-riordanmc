@@ -1,8 +1,7 @@
-package com.riverstone.unknown303.riordanlib.block.custom;
+package com.riverstone.unknown303.riordanlib.block.custom.godly_altar;
 
 
-import com.riverstone.unknown303.riordanlib.block.entity.GodlyAltarBlockEntity;
-import com.riverstone.unknown303.riordanlib.block.entity.ModBlockEntities;
+import com.riverstone.unknown303.riordanlib.block.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
