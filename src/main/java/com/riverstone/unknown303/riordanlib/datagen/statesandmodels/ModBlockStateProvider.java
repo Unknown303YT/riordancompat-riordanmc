@@ -22,11 +22,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 //                new ModelFile.UncheckedModelFile(modLoc("block/godly_altar")));
     }
 
-    private void registryBlockWithItem(RegistryObject<Block> blockRegistryObject) {
-        blockWithItem(blockRegistryObject.get());
-    }
-
-    private void blockWithItem(Block block) {
-        simpleBlockWithItem(block, cubeAll(block));
+    private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
+        simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
     }
 }

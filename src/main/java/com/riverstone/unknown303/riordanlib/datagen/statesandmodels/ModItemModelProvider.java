@@ -20,7 +20,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         simpleItem(ModItems.FABRIC);
-        customBlockState(ModBlocks.GODLY_ALTAR);
+        simpleBlockItem(ModBlocks.GODLY_ALTAR);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
@@ -29,7 +29,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                 new ResourceLocation(RiordanMod.MOD_ID,"item/" + item.getId().getPath()));
     }
 
-    private ItemModelBuilder customBlockState(RegistryObject<Block> block) {
+    private ItemModelBuilder simpleBlockItem(RegistryObject<Block> block) {
         return withExistingParent(block.getId().getPath(),
                 new ResourceLocation(RiordanMod.MOD_ID, "block/" + block.getId().getPath()));
     }
