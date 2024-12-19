@@ -103,7 +103,9 @@ public class GodlyAltarBlock extends BaseEntityBlock {
         if (!pLevel.isClientSide) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
             if (entity instanceof GodlyAltarBlockEntity) {
+                ((GodlyAltarBlockEntity) entity).setActivePlayer(pPlayer);
                 NetworkHooks.openScreen(((ServerPlayer) pPlayer), (GodlyAltarBlockEntity) entity, pPos);
+                ((GodlyAltarBlockEntity) entity).setActivePlayer(null);
             } else {
                 throw new IllegalStateException("Our Container provider is missing!");
             }
